@@ -16,7 +16,7 @@ class TTTBoard:
     def __str__(self):
         boardStr = ""
         for i in range(len(self.board)):
-            if (i == 2 or i == 5):
+            if (i == 3 or i == 6):
                 boardStr += "\n"
             boardStr += self.board[i] + " "
         return boardStr
@@ -29,21 +29,21 @@ class TTTBoard:
            return False
     
     def has_won(self, player):
-        if self.board[0] == self.board[1] == self.board[2] != "*":
+        if self.board[0] == self.board[1] == self.board[2] == player:
             return True
-        elif self.board[3] == self.board[4] == self.board[5] != "*":
+        elif self.board[3] == self.board[4] == self.board[5] == player:
             return True
-        elif self.board[6] == self.board[7] == self.board[8] != "*":
+        elif self.board[6] == self.board[7] == self.board[8] == player:
             return True
-        elif self.board[0] == self.board[3] == self.board[6] != "*":
+        elif self.board[0] == self.board[3] == self.board[6] == player:
             return True
-        elif self.board[1] == self.board[4] == self.board[7] != "*":
+        elif self.board[1] == self.board[4] == self.board[7] == player:
             return True
-        elif self.board[2] == self.board[5] == self.board[8] != "*":
+        elif self.board[2] == self.board[5] == self.board[8] == player:
             return True
-        elif self.board[0] == self.board[4] == self.board[8] != "*":
+        elif self.board[0] == self.board[4] == self.board[8] == player:
             return True
-        elif self.board[2] == self.board[4] == self.board[6] != "*":
+        elif self.board[2] == self.board[4] == self.board[6] == player:
             return True
         else:
             return False
@@ -69,27 +69,31 @@ class TTTBoard:
             return True
         else:
             return False
+        
+    def clear(self):
+        for i in range(len(self.board)):
+            self.board[i] = "*"
 
 
 
 
-    def play_tic_tac_toe() -> None:
-        """Uses your class to play TicTacToe"""
+def play_tic_tac_toe() -> None:
+    """Uses your class to play TicTacToe"""
 
-    def is_int(maybe_int: str):
-        """Returns True if val is int, False otherwise
+def is_int(maybe_int: str):
+    """Returns True if val is int, False otherwise
 
-        Args:
-            maybe_int - string to check if it's an int
+    Args:
+        maybe_int - string to check if it's an int
 
-        Returns:
-            True if maybe_int is an int, False otherwise
-        """
-        try:
-            int(maybe_int)
-            return True
-        except ValueError:
-            return False
+    Returns:
+        True if maybe_int is an int, False otherwise
+    """
+    try:
+        int(maybe_int)
+        return True
+    except ValueError:
+        return False
 
 brd = TTTBoard()
 players = ["X", "O"]
@@ -149,4 +153,4 @@ if __name__ == "__main__":
     print("All tests passed!")
 
     # uncomment to play!
-    # play_tic_tac_toe()
+play_tic_tac_toe()
