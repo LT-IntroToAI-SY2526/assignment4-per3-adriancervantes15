@@ -22,7 +22,7 @@ class TTTBoard:
         return boardStr
     
     def make_move(self, player, pos):
-       if self.board[pos] == "*":
+       if 0 <= pos <=8 and self.board[pos] == "*":
            self.board[pos] = player
            return True
        else:
